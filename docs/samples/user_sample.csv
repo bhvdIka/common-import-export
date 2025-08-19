@@ -1,0 +1,6 @@
+username,email,first_name,last_name,role,department,is_active
+jdoe,john.doe@company.com,John,Doe,Administrator,IT,true
+jsmith,jane.smith@company.com,Jane,Smith,Operator,Operations,true
+bmiller,bob.miller@company.com,Bob,Miller,Supervisor,Maintenance,true
+awilson,alice.wilson@company.com,Alice,Wilson,Analyst,Quality Assurance,true
+mjohnson,mike.johnson@company.com,Mike,Johnson,Technician,Engineering,false

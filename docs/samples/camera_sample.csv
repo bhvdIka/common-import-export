@@ -1,0 +1,6 @@
+name,type,ip_address,location,is_active,description
+Security Camera 1,IP Camera,192.168.1.100,Main Entrance,true,Primary entrance security monitoring
+PTZ Camera 2,PTZ Camera,192.168.1.101,Parking Lot,true,360-degree parking lot surveillance
+Thermal Camera 3,Thermal Camera,192.168.1.102,Perimeter Wall,true,Thermal imaging for perimeter security
+Dome Camera 4,Dome Camera,192.168.1.103,Lobby Area,true,Indoor lobby monitoring system
+Wildlife Camera 5,Trail Camera,192.168.1.104,Garden Area,false,Outdoor wildlife observation camera

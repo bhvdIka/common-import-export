@@ -1,0 +1,14 @@
+# Robot Sample Data (Excel Format)
+
+Since this is a text representation, the actual Excel file would contain:
+
+## Sheet 1: Robot Data
+
+| name | model | serial_number | manufacturer | is_active | description |
+|------|-------|---------------|--------------|-----------|-------------|
+| Industrial Robot 1 | ARM-X500 | IR-2024-001 | RoboManufacturing | true | Heavy-duty industrial robotic arm |
+| Assembly Robot 2 | ASM-2000 | AR-2024-002 | AutoAssembly Corp | true | Precision assembly line robot |
+| Welding Robot 3 | WELD-Pro | WR-2024-003 | WeldTech Industries | false | Automated welding robot for metal fabrication |
+| Packaging Robot 4 | PACK-Master | PR-2024-004 | PackageBot Solutions | true | High-speed packaging automation |
+
+This file would be created as an actual .xlsx file in a real implementation.

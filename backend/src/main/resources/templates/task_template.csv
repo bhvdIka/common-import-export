@@ -1,0 +1,3 @@
+name,type,priority,status,assigned_to,due_date,is_active,description
+Task 1,Maintenance,1,Open,john.doe,2024-01-15 10:00:00,true,Regular maintenance check
+Task 2,Inspection,2,In Progress,jane.smith,2024-01-20 14:30:00,true,Safety inspection

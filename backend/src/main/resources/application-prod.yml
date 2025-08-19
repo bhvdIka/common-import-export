@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: prod
+  
+  datasource:
+    # Production database configuration would go here
+    # url: jdbc:postgresql://localhost:5432/importexport_db
+    # username: ${DB_USERNAME}
+    # password: ${DB_PASSWORD}
+
+app:
+  file-upload:
+    upload-path: /var/uploads/import-export
+    max-file-size: 52428800  # 50MB for production
+
+logging:
+  level:
+    com.importexport: INFO
+    root: WARN
+  file:
+    name: /var/log/import-export.log
