@@ -3,19 +3,99 @@ spring:
     active: prod
   
   datasource:
-    # Production database configuration would go here
-    # url: jdbc:postgresql://localhost:5432/importexport_db
-    # username: ${DB_USERNAME}
-    # password: ${DB_PASSWORD}
+    # Production database configuration
+    # Replace with your actual production database
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/importexport_db}
+    username: ${DB_USERNAME:importexport_user}
+    password: ${DB_PASSWORD:your_secure_password}
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate  # Use 'validate' for production
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        default_schema: public
+  
+  h2:
+    console:
+      enabled: false  # Disable H2 console in production
 
+# Production-specific application configuration
 app:
   file-upload:
-    upload-path: /var/uploads/import-export
+    upload-path: ${UPLOAD_PATH:/var/uploads/import-export}
     max-file-size: 52428800  # 50MB for production
+    max-request-size: 52428800
+    allowed-file-types: 
+      - csv
+      - xlsx
+      - xls
+      - json
 
+  import-export:
+    performance:
+      default-batch-size: 200  # Larger batches for production
+      max-batch-size: 2000
+      thread-pool-size: 8  # More threads for production
+      max-processing-time-ms: 600000  # 10 minutes for large files
+      enable-parallel-processing: true
+    
+    security:
+      enable-input-sanitization: true
+      enable-xss-protection: true
+      enable-injection-protection: true
+      max-string-length: 5000  # Stricter limit for production
+    
+    validation:
+      enable-strict-validation: true
+      enable-business-rule-validation: true
+      enable-duplicate-checks: true
+      allow-partial-imports: false  # Stricter for production
+    
+    features:
+      enable-progress-tracking: true
+      enable-audit-logging: true
+      enable-data-transformation: true
+      enable-async-processing: true
+
+# Production logging configuration
 logging:
   level:
     com.importexport: INFO
+    org.springframework.web: WARN
+    org.hibernate.SQL: WARN
     root: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
   file:
-    name: /var/log/import-export.log
+    name: ${LOG_FILE:/var/log/import-export/application.log}
+    max-size: 100MB
+    max-history: 30
+
+# Production actuator configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: never
+  security:
+    enabled: true
+
+# Server configuration for production
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /api
+  compression:
+    enabled: true
+  http2:
+    enabled: true
