@@ -1,0 +1,3 @@
+name,model,serial_number,manufacturer,is_active,description
+Robot 1,AGV-100,SN001,RoboCorp,true,Autonomous guided vehicle for warehouse
+Robot 2,ARM-200,SN002,RoboCorp,true,Robotic arm for assembly line

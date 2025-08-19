@@ -1,0 +1,3 @@
+username,email,first_name,last_name,role,department,is_active
+jdoe,john.doe@company.com,John,Doe,Admin,IT,true
+jsmith,jane.smith@company.com,Jane,Smith,Operator,Operations,true

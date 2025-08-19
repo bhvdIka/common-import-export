@@ -1,0 +1,26 @@
+[
+  {
+    "name": "AGV Unit 001",
+    "model": "AutoBot-3000",
+    "serialNumber": "AGV-2024-001",
+    "manufacturer": "RoboTech Industries",
+    "isActive": true,
+    "description": "Autonomous guided vehicle for warehouse material transport"
+  },
+  {
+    "name": "Robotic Arm Alpha",
+    "model": "PrecisionArm-500",
+    "serialNumber": "ARM-2024-001",
+    "manufacturer": "Precision Robotics",
+    "isActive": true,
+    "description": "6-axis robotic arm for assembly line operations"
+  },
+  {
+    "name": "Cleaning Robot Beta",
+    "model": "CleanBot-200",
+    "serialNumber": "CLN-2024-001",
+    "manufacturer": "CleanTech Solutions",
+    "isActive": false,
+    "description": "Autonomous floor cleaning robot for maintenance"
+  }
+]

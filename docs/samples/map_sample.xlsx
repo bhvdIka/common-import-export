@@ -1,0 +1,14 @@
+# Map Sample Data (Excel Format)
+
+Since this is a text representation, the actual Excel file would contain:
+
+## Sheet 1: Map Data
+
+| name | type | resolution | width | height | origin_x | origin_y | is_active | description |
+|------|------|------------|-------|--------|----------|----------|-----------|-------------|
+| Factory Floor Plan | 2D Floor Plan | 0.05 | 2000 | 1500 | 0.0 | 0.0 | true | Main factory floor layout map |
+| Warehouse Layout | 2D Layout | 0.1 | 1200 | 800 | 10.5 | 15.2 | true | Warehouse storage area mapping |
+| Outdoor Campus Map | Satellite | 0.5 | 5000 | 4000 | -50.0 | -30.0 | true | Complete campus aerial view |
+| Emergency Evacuation | Safety Map | 0.02 | 1800 | 1200 | 5.0 | 5.0 | false | Emergency exit routes and assembly points |
+
+This file would be created as an actual .xlsx file in a real implementation.

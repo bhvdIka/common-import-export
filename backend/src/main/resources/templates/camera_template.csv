@@ -1,0 +1,3 @@
+name,type,ip_address,location,is_active,description
+Camera 1,IP Camera,192.168.1.100,Entrance,true,Main entrance security camera
+Camera 2,PTZ Camera,192.168.1.101,Lobby,true,Lobby surveillance camera
