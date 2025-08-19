@@ -1,5 +1,7 @@
 server:
   port: 8080
+  servlet:
+    context-path: /
 
 spring:
   application:
@@ -7,31 +9,36 @@ spring:
   
   servlet:
     multipart:
-      max-file-size: 10MB
-      max-request-size: 10MB
+      max-file-size: 100MB
+      max-request-size: 100MB
       enabled: true
   
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
     username: sa
-    password: password
+    password:
   
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: create-drop
-    show-sql: true
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
   
   h2:
     console:
       enabled: true
       path: /h2-console
 
+# Custom Application Configuration
 app:
   file-upload:
-    max-file-size: 10485760  # 10MB
-    max-request-size: 10485760  # 10MB
+    max-file-size: 104857600  # 100MB
+    max-request-size: 104857600  # 100MB
     allowed-file-types: 
       - csv
       - xlsx
@@ -39,7 +46,47 @@ app:
       - json
     upload-path: ./uploads
 
+  # Import/Export Configuration
+  import-export:
+    performance:
+      default-batch-size: 100
+      max-batch-size: 1000
+      thread-pool-size: 4
+      max-processing-time-ms: 300000  # 5 minutes
+      enable-parallel-processing: true
+    
+    security:
+      enable-input-sanitization: true
+      enable-xss-protection: true
+      enable-injection-protection: true
+      max-string-length: 10000
+    
+    validation:
+      enable-strict-validation: true
+      enable-business-rule-validation: true
+      enable-duplicate-checks: true
+      allow-partial-imports: true
+    
+    features:
+      enable-progress-tracking: true
+      enable-audit-logging: true
+      enable-data-transformation: true
+      enable-async-processing: true
+
+# Logging Configuration
 logging:
   level:
-    com.importexport: DEBUG
+    com.importexport: INFO
     org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,env
+  endpoint:
+    health:
+      show-details: when-authorized
